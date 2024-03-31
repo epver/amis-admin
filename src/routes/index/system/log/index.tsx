@@ -1,6 +1,7 @@
 import type { ProColumns } from '@ant-design/pro-components'
 import { ProTable } from '@ant-design/pro-components'
 import { Modal, Popover, Tag } from 'antd'
+import dayjs from 'dayjs'
 import { useState } from 'react'
 
 import { client } from '@/api'
@@ -9,7 +10,6 @@ import type {
   user__findUniqueResponseData_data
 } from '@/api/models'
 import { replaceAntSearchFormValues } from '@/utils'
-import timeFormat from '@/utils/timeFormat'
 
 enum METHODTYPE {
   GET = 'GET',
@@ -29,8 +29,9 @@ const LogPage = () => {
       title: '时间',
       dataIndex: 'createdAt',
       search: false,
-      width: 180,
-      render: (_, record) => <div>{timeFormat(record.createdAt)}</div>
+      // sorter: true,
+      // sortDirections: ['asc', 'desc'] as any, // 使用sortDirections时排序按钮会消失，antd bug
+      render: (_, record) => <div>{dayjs(record.createdAt).format('YYYY-MM-DD HH:mm:ss')}</div>
     },
     {
       title: 'error',
@@ -60,7 +61,6 @@ const LogPage = () => {
     {
       title: 'path',
       dataIndex: 'path',
-      width: 280,
       ellipsis: true
     },
     {
@@ -74,23 +74,26 @@ const LogPage = () => {
       title: 'userId',
       dataIndex: 'userId',
       search: false,
-      width: 240,
-      ellipsis: true,
+      width: 200,
       render: (_, record) => (
-        <div onClick={() => onClickUserId(record.userId ?? '')}>{record.userId}</div>
+        <div
+          className="cursor-pointer c-blue truncate"
+          onClick={() => onClickUserId(record.userId ?? '')}
+        >
+          {record.userId}
+        </div>
       )
     },
     {
       title: '耗时（s）',
       dataIndex: 'cost',
-      search: false,
-      sorter: (a, b) => a!.cost! - b!.cost!
+      search: false
+      // sorter: (a, b) => a!.cost! - b!.cost!
     },
     {
       title: 'requestId',
       dataIndex: 'requestId',
       search: false,
-      width: 240,
       ellipsis: true
     },
     {
@@ -102,13 +105,7 @@ const LogPage = () => {
       title: '浏览器 UA',
       dataIndex: 'ua',
       search: false,
-      width: 240,
       ellipsis: true
-    },
-    {
-      title: '手机号',
-      dataIndex: 'phone',
-      hideInTable: true
     }
   ]
 
@@ -138,13 +135,16 @@ const LogPage = () => {
       <ProTable
         columns={columns}
         rowKey="id"
-        scroll={{ x: 1800 }}
-        request={async params => {
+        bordered
+        scroll={{ x: 2000 }}
+        request={async (params, sort, filter) => {
+          console.log('params===', params, sort, filter)
           const { error, data } = await client.query({
             operationName: 'log/findMany',
             input: {
               skip: (params!.current! - 1) * params.pageSize!,
               take: params.pageSize,
+              // orderBy: [sort],
               ...replaceAntSearchFormValues(params)
             }
           })
