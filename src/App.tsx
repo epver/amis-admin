@@ -5,10 +5,12 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 import FullScreenLoading from '@/components/FullScreenLoading'
 
+import { AlertComponent } from 'amis'
 import AppRoutes from './components/AppRoutes'
 import { Path } from './constants'
 import { useAdmin } from './store/admin'
 import { useAuth } from './store/auth'
+import { theme } from './utils'
 
 function App() {
   const location = useLocation()
@@ -51,6 +53,7 @@ function App() {
         hashed: false
       }}
     >
+      <AlertComponent theme={theme} key="amis-alert" />
       <AppRoutes />
     </ConfigProvider>
   ) : (
