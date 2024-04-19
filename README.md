@@ -312,11 +312,16 @@ mysql:
 
 4. 接下来创建 `fireboom` 环境变量配置文件
 
+从`backend/.env.example`复制一份到`backend/.env`，然后修改里面的变量：
+
 ```sh
-# backend_store/.env
-# 从代码的 backend/.env 文件里复制，只需要改 DB_ADMIN 变量
+# 按需修改部分配置
 ...
-DB_ADMIN=DB_ADMIN="mysql://root:123456@172.17.0.1:3306/oidc"
+# mysql 数据库配置
+DB_ADMIN="mysql://root:123456@172.17.0.1:3306/oidc"
+# 腾讯云账号 AppID，也可以换成别的s3，具体根据需求修改
+AppID="tengxunyun-s3-app-id"
+AppSecret="tengxunyun-s3-app-secret"
 ```
 
 5. 然后启动服务

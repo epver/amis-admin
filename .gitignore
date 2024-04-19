@@ -36,6 +36,7 @@ backend/exported
 backend/authentication.key
 backend/template
 backend/.env*
+!backend/.env.example
 
 oidc/oidc
 oidc/yudai
