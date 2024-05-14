@@ -29,9 +29,7 @@ export default defineConfig({
     port: 8080,
     proxy: {
       // 测试服地址：https://test.admin.enjoyfreetalk.com
-      '/auth': 'http://localhost:9991',
-      '/operations': 'http://localhost:9991',
-      '/s3': 'http://localhost:9991'
+      '^/(auth|operations|s3)': 'http://localhost:9991'
     }
   },
   plugins: [
