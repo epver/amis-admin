@@ -14802,7 +14802,7 @@ input.is-disabled {
 svg.icon {
   width: 1em;
   height: 1em;
-  fill: currentColor;
+  /* fill: currentColor; */
   position: relative;
   top: 0.125em;
 }
