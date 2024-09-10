@@ -3,7 +3,7 @@
   <p>基于 Fireboom 的可视化中后台全栈开发框架</p>
   <a href="https://docs.fireboom.io/kuai-su-ru-men/kuai-su-shang-shou">Quickstart</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="https://www.fireboom.cloud/">Website</a>
+  <a href="https://www.fireboom.io/">Website</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://docs.fireboom.io">Docs</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
@@ -18,7 +18,7 @@
 
 **amis-admin** 最大的特点是：**融合可视化 API 接口开发**和**可视化拖拽界面**，目标是快速开发中后台系统。
 
-- TA 基于 [Fireboom](https://www.fireboom.cloud) 和 [百度 amis](https://github.com/baidu/amis) 构建，既可以快速构建 API，也可以拖拽生成页面，
+- TA 基于 [Fireboom](https://www.fireboom.io) 和 [百度 amis](https://github.com/baidu/amis) 构建，既可以快速构建 API，也可以拖拽生成页面，
 
 - TA 适用于网站管理后台、CMS、CRM、OA 等中后台系统开发。当然，你也可以对TA深度定制。
 
@@ -53,7 +53,7 @@
 
 **后端**
 
-- [Fireboom 可视化 API 开发工具](https://www.fireboom.cloud) >2.0
+- [Fireboom 可视化 API 开发工具](https://www.fireboom.io) >2.0
 - 钩子 Golang > 1.20（待实现其他语言，如 NodeJS ）
 - Mysql 数据库
 
@@ -81,7 +81,7 @@
 
 使用它即可以快速开发增删改查接口，也可以编写钩子代码完成复杂业务逻辑，进而缩减项目交付时间，让后端开发者从重复工作中解放出来，专注于更有价值的业务逻辑。同时，前端开发者也能快速上手，变身全栈开发。
 
-Fireboom官网：[https://www.fireboom.cloud](https://www.fireboom.cloud)
+Fireboom官网：[https://www.fireboom.io](https://www.fireboom.io)
 
 ## 百度 amis
 
@@ -361,5 +361,5 @@ rsync -av --exclude "index.ts" [server]:[source-path] [dist-path]
 
 # 参考
 
-- Fireboom 官网：https://www.fireboom.cloud
+- Fireboom 官网：https://www.fireboom.io
 - AMIS 官网：[https://baidu.github.io/amis](https://baidu.github.io/amis)
